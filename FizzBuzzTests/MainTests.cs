@@ -20,12 +20,16 @@ namespace FizzBuzzTests
         public void Multiples_Of_3_Return_Fizz_Test()
         {
             var by3 = GetMultiplesByDivisor(3, numbers);
-            var fbitem = new FBItem(3, "Fizz");
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
+            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<FBDivisorItem> { fbitem3 });
+
+            var results = fbproc.GetResults();
+
             var resultarray=new int[by3.Length];
             
             foreach (int i in by3)
             {
-                FBResult fbresult = fbitem.GetResult(i);
+                FBResult fbresult = fbitem3.GetResult(i);
                 if (fbresult.Text != "Fizz" && fbresult.FBValue.HasValue == true)
                 {
                     break;
@@ -42,7 +46,7 @@ namespace FizzBuzzTests
         public void NonMultiples_Of_3_Return_Number_Test()
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
-            var fbitem = new FBItem(3, "Fizz");
+            var fbitem = new FBDivisorItem(3, "Fizz");
             var result = fbitem.GetResult(notby3.First());
 
             var expected = new FBResult(notby3.First(),null);

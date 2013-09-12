@@ -7,14 +7,12 @@ using FizzBuzzLib.Interfaces;
 using FizzBuzzLib.BaseObjects;
 namespace FizzBuzzLib
 {
-    public class FBItem:BaseDivisorItem,IFBItem
+    public class FBDivisorItem:BaseDivisorItem,IFBItem
     {
-        public FBItem(int i, string  msg  ):base(i,msg)
+        public FBDivisorItem(int i, string  msg  ):base(i,msg)
         {
            
         }
-        
-        public int OrderCheck{get;set;}
         public FBResult GetResult(int i)
         {
             FBResult result = new FBResult();

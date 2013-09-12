@@ -8,11 +8,11 @@ namespace FizzBuzzLib
 {
     public class FBProcessor
     {
-        List<FBItem> fbitems;
+        List<FBDivisorItem> fbitems;
         int[] nums;
-        public FBProcessor(int[] nums, List<FBItem> fbitems)
+        public FBProcessor(int[] nums, List<FBDivisorItem> fbitems)
         {
-            this.fbitems = fbitems;
+            this.fbitems=fbitems;
             this.nums=nums;
         }
         public FBResult[] GetResults()

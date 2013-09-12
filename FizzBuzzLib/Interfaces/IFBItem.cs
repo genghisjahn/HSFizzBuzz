@@ -8,7 +8,6 @@ namespace FizzBuzzLib.Interfaces
 {
     public interface IFBItem
     {
-        int OrderCheck { get; set; }
         FBResult GetResult(int i);
     }
 }
