@@ -22,7 +22,7 @@ namespace FizzBuzzTests
         public void Multiples_Of_3_Return_Fizz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(3, numbers);
-            var fbitem3 = new FBDivisorItem(3, "Fizz",3);
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem3 }, "Fizz");
             Assert.IsTrue(condcheck == false);
         }
@@ -31,7 +31,7 @@ namespace FizzBuzzTests
         public void NonMultiples_Of_3_Return_Number_Test()
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
-            var fbitem3 = new FBDivisorItem(3, "Fizz",3);
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
             bool condcheck = CheckForCondition(notby3, new List<IFBItem> { fbitem3 }, null);
 
             Assert.IsTrue(condcheck == false);
@@ -42,7 +42,7 @@ namespace FizzBuzzTests
         public void Multiples_Of_5_Return_Buzz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(5, numbers);
-            var fbitem5 = new FBDivisorItem(5, "Buzz",5);
+            var fbitem5 = new FBDivisorItem(5, "Buzz");
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem5 }, "Buzz");
             Assert.IsTrue(condcheck == false);
         }
@@ -51,7 +51,7 @@ namespace FizzBuzzTests
         public void NonMultiples_Of_5_Return_Number_Test()
         {
             var notby5 = GetNonMultiplesByDivisor(5, numbers);
-            var fbitem5 = new FBDivisorItem(5, "Buzz",5);
+            var fbitem5 = new FBDivisorItem(5, "Buzz");
             bool condcheck = CheckForCondition(notby5, new List<IFBItem> { fbitem5 }, null);
 
             Assert.IsTrue(condcheck == false);
@@ -62,7 +62,7 @@ namespace FizzBuzzTests
         public void Multiples_Of_15_Return_FizzBuzz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(15, numbers);
-            var fbitem15 = new FBDivisorItem(15, "FizzBuzz",15);
+            var fbitem15 = new FBDivisorItem(15, "FizzBuzz");
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem15 }, "FizzBuzz");
             Assert.IsTrue(condcheck == false);
         }
@@ -71,7 +71,7 @@ namespace FizzBuzzTests
         public void NonMultiples_Of_15_Return_Number_Test()
         {
             var numstocheck = GetNonMultiplesByDivisor(15, numbers);
-            var fbitem15 = new FBDivisorItem(15, "FizzBuzz",15);
+            var fbitem15 = new FBDivisorItem(15, "FizzBuzz");
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem15 }, null);
             Assert.IsTrue(condcheck == false);
         }
@@ -80,9 +80,9 @@ namespace FizzBuzzTests
         public void Multiples_Of_15_Return_FizzBuzz_With_15_5_3_Items_Test()
         {
             var numstocheck = GetMultiplesByDivisor(15, numbers);
-            var fbitem15 = new FBDivisorItem(15, "FizzBuzz",15);
-            var fbitem5 = new FBDivisorItem(5, "Buzz",5);
-            var fbitem3 = new FBDivisorItem(3, "Fizz",3);
+            var fbitem15 = new FBDivisorItem(15, "FizzBuzz");
+            var fbitem5 = new FBDivisorItem(5, "Buzz");
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem15, fbitem5, fbitem3 }, "FizzBuzz");
 
             Assert.IsTrue(condcheck == false);
@@ -99,9 +99,9 @@ namespace FizzBuzzTests
 
             var other = numbers.Where(n => !m3.Contains(n) && !m5.Contains(n) && !m15.Contains(n)).ToArray();
 
-            var fb15 = new FBDivisorItem(15, "FizzBuzz",15);
-            var fb5 = new FBDivisorItem(5, "Buzz",5);
-            var fb3 = new FBDivisorItem(3, "Fizz",3);
+            var fb15 = new FBDivisorItem(15, "FizzBuzz");
+            var fb5 = new FBDivisorItem(5, "Buzz");
+            var fb3 = new FBDivisorItem(3, "Fizz");
             
             
 

@@ -9,11 +9,12 @@ namespace FizzBuzzLib.BaseObjects
     public abstract class BaseDivisorItem
     {
         
-        public BaseDivisorItem(int divisor,string message,int ordercheck)
+        public BaseDivisorItem(int divisor,string message,int ordercheck=0)
         {
             this.Divisor = divisor;
             this.Message = message;
-            this.OrderCheck = ordercheck;
+
+            this.OrderCheck = ordercheck == 0 ? divisor : ordercheck;
         }
         public int Divisor { get;private set; }
         public string Message { get; private set; }
