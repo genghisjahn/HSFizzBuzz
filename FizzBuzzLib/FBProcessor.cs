@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FizzBuzzLib.Interfaces;
+using System.ComponentModel;
 namespace FizzBuzzLib
 {
     public class FBProcessor
@@ -15,6 +16,7 @@ namespace FizzBuzzLib
             this.fbitems=fbitems;
             this.nums=nums;
         }
+        [Description("FBItems are processed in descending order based on the Order Check property."), Category("Functionality")]
         public FBResult[] GetResults()
         {
             var result = new FBResult[this.nums.Length];
