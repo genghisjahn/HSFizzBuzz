@@ -35,5 +35,19 @@ namespace FizzBuzzLib
             }
             return result;
         }
+        public static FBResult GetResult(int i, List<IFBItem> fbitems)
+        {
+            FBResult result = new FBResult();
+            foreach (var fbi in fbitems.OrderByDescending(fb => fb.OrderCheck))
+            {
+                FBResult fbresult = fbi.GetResult(i);
+                result = fbresult;
+                if (fbresult.Text != null)
+                {
+                    break;
+                }
+            }
+            return result;
+        }
     }
 }

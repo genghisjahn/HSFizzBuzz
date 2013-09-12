@@ -19,13 +19,26 @@ namespace FizzBuzz3
             //var results = ProcessResultsFizzBuzz(); //Only Multiples of 15 rule.
             //var results = ProcessResultsFullFizzBuzz(); //All three fizzbuzz rules.
             //var results = ProcessResultsFizzAndPalindrome(); //Only multiples of 3 and palindromes.
-            var results = ProcessResultsOutsideAssemblyPalindrome(); //Palindrome rule applied based upon outside implementation of IFBItem.
+            //var results = ProcessResultsOutsideAssemblyPalindrome(); //Palindrome rule applied based upon outside implementation of IFBItem.
             
-            
+            /*
             foreach (var r in results)
             {
                 Console.WriteLine(r.ToString());
             }
+            */
+            FBDivisorItem fbitem3 = new FBDivisorItem(3, "Fizz");
+            FBDivisorItem fbitem5 = new FBDivisorItem(5, "Buzz");
+            FBDivisorItem fbitem15 = new FBDivisorItem(15, "FizzBuzz");
+
+            List<IFBItem> fbitems = new List<IFBItem>(){fbitem3,fbitem5,fbitem15};
+       
+            for (int i = 0; i <= int.MaxValue; i++)
+            {
+                var result= FBProcessor.GetResult(i, fbitems);
+                if(i % 1000000==0 || i<1000 )Console.WriteLine(result);
+            }
+
             Console.ReadKey();
         } 
         #region "Private Result Processors"
