@@ -46,6 +46,7 @@ namespace FizzBuzzTests
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem5 }, "Buzz");
             Assert.IsTrue(condcheck == false);
         }
+
         [TestMethod]
         public void NonMultiples_Of_5_Return_Number_Test()
         {
@@ -65,6 +66,7 @@ namespace FizzBuzzTests
             bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem15 }, "FizzBuzz");
             Assert.IsTrue(condcheck == false);
         }
+
         [TestMethod]
         public void NonMultiples_Of_15_Return_Number_Test()
         {
@@ -86,8 +88,12 @@ namespace FizzBuzzTests
             Assert.IsTrue(condcheck == false);
 
         }
-       
-       
+
+        [TestMethod]
+        public void All_3_Fizz_5_Buzz_15_FizzBuzz_Test()
+        {
+            
+        }
 
         private static bool CheckForCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
         {
