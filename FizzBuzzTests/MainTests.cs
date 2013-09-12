@@ -11,13 +11,15 @@ namespace FizzBuzzTests
     public class MainTests
     {
         private static int[] numbers;
+        private static int[] numbers20;
 
         [ClassInitialize]
         public static void FZTestInitialize(TestContext context)
         {
             numbers = Enumerable.Range(1, 100).ToArray();
+            numbers20 = Enumerable.Range(1, 20).ToArray();
         }
-
+        #region "Other Implementation Tests"
         [TestMethod]
         [TestCategory("Other Implementations")]
         public void Valid_PalinDromeTest()
@@ -58,11 +60,11 @@ namespace FizzBuzzTests
             Assert.IsTrue(result.Text != "Perfect Square!" && result.FBValue == numtocheck);
         }
 
-
+        #endregion
 
         #region "Normal Fizz Buzz Test"
 
-        
+
         [TestMethod]
         [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_3_Return_Fizz_Test()
@@ -174,9 +176,42 @@ namespace FizzBuzzTests
 
         #endregion
 
+        #region "Test Other And Fizz Buzz"
+
+        [TestMethod]
+        [TestCategory("FizzBuzz & Other Tests")]
+        public void All_Palindrome_PerfectSqaure_FizzBuzz_Test()
+        {
+            var m15 = GetMultiplesByDivisor(15, numbers);
+            var m3 = GetMultiplesByDivisor(3, numbers).Where(n => !m15.Contains(n)).ToArray();
+            var m5 = GetMultiplesByDivisor(5, numbers).Where(n => !m15.Contains(n)).ToArray();
+
+
+            var other = numbers.Where(n => !m3.Contains(n) && !m5.Contains(n) && !m15.Contains(n)).ToArray();
+
+            var fb15 = new FBDivisorItem(15, "FizzBuzz");
+            var fb5 = new FBDivisorItem(5, "Buzz");
+            var fb3 = new FBDivisorItem(3, "Fizz");
+
+
+
+            var fbproc = new FBProcessor(numbers, new List<IFBItem> { fb15, fb5, fb3 });
+
+            var procresults = fbproc.GetResults();
+
+            var m3count = procresults.Where(n => n.Text == "Fizz").Count();
+            var m5count = procresults.Where(n => n.Text == "Buzz").Count();
+            var m15count = procresults.Where(n => n.Text == "FizzBuzz").Count();
+            var othercount = procresults.Where(n => n.Text == null).Count();
+
+            Assert.IsTrue(m3.Count() == m3count && m5.Count() == m5count && m15.Count() == m15count && othercount == other.Count());
+
+        }
+
+        #endregion
 
         #region "Private Methods"
-        
+
         private static bool CheckForCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
         {
             var fbproc = new FBProcessor(numstocheck, fbitems);
