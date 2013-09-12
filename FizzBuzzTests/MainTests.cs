@@ -38,6 +38,28 @@ namespace FizzBuzzTests
             Assert.IsTrue(result.Text != "Palindrome!" && result.FBValue == numtocheck);
         }
 
+        [TestMethod]
+        [TestCategory("Other Implementations")]
+        public void Valid_PerfectSquare_Test()
+        {
+            var numtocheck = 49;
+            var fbsquare = new FBPerfectSquareItem(1);
+            var result = fbsquare.GetResult(numtocheck);
+            Assert.IsTrue(result.Text == "Perfect Square!" && result.FBValue == numtocheck);
+        }
+
+        [TestMethod]
+        [TestCategory("Other Implementations")]
+        public void InValid_PerfectSquare_Test()
+        {
+            var numtocheck = 50;
+            var fbsquare = new FBPerfectSquareItem(1);
+            var result = fbsquare.GetResult(numtocheck);
+            Assert.IsTrue(result.Text != "Perfect Square!" && result.FBValue == numtocheck);
+        }
+
+
+
         #region "Normal Fizz Buzz Test"
 
         
