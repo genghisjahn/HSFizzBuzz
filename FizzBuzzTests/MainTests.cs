@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FizzBuzzLib;
+using FizzBuzzLib.Interfaces;
 namespace FizzBuzzTests
 {
     [TestClass]
@@ -21,39 +22,46 @@ namespace FizzBuzzTests
         {
             var by3 = GetMultiplesByDivisor(3, numbers);
             var fbitem3 = new FBDivisorItem(3, "Fizz");
-            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<FBDivisorItem> { fbitem3 });
-
+            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<IFBItem> { fbitem3 });
             var results = fbproc.GetResults();
-
             var resultarray=new int[by3.Length];
-            
+            bool nofizzcheck = false;
             foreach (int i in by3)
             {
                 FBResult fbresult = fbitem3.GetResult(i);
                 if (fbresult.Text != "Fizz" && fbresult.FBValue.HasValue == true)
                 {
+                    nofizzcheck = true;
                     break;
                 }
             }
-
-            
-
-            
-            
+            Assert.IsTrue(nofizzcheck == false);
         }
-
         [TestMethod]
         public void NonMultiples_Of_3_Return_Number_Test()
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
-            var fbitem = new FBDivisorItem(3, "Fizz");
-            var result = fbitem.GetResult(notby3.First());
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
 
-            var expected = new FBResult(notby3.First(),null);
-            Assert.AreEqual(expected.ToString(), result.ToString());
+            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<IFBItem> { fbitem3 });
+            var results = fbproc.GetResults();
+            var resultarray = new int[notby3.Length];
+
+            bool fizzcheck = false;
+            foreach (int i in notby3)
+            {
+                FBResult fbresult = fbitem3.GetResult(i);
+                if (fbresult.Text == "Fizz" && fbresult.FBValue.HasValue == true)
+                {
+                    fizzcheck = true;
+                    break;
+                }
+            }
+            Assert.IsTrue(fizzcheck == false);
+
         }
 
-
+        
 
         private static int[] GetMultiplesByDivisor(int divisor,int[] nums)
         {

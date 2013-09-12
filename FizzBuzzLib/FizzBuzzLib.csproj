@@ -43,7 +43,7 @@
     <Compile Include="FBProcessor.cs" />
     <Compile Include="FBResult.cs" />
     <Compile Include="Interfaces\IFBItem.cs" />
-    <Compile Include="FBItem.cs" />
+    <Compile Include="FBDivisorItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

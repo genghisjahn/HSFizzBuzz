@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FizzBuzzLib.Interfaces;
 namespace FizzBuzzLib
 {
     public class FBProcessor
     {
-        List<FBDivisorItem> fbitems;
+        List<IFBItem> fbitems;
         int[] nums;
-        public FBProcessor(int[] nums, List<FBDivisorItem> fbitems)
+        public FBProcessor(int[] nums, List<IFBItem> fbitems)
         {
             this.fbitems=fbitems;
             this.nums=nums;
@@ -18,13 +18,13 @@ namespace FizzBuzzLib
         public FBResult[] GetResults()
         {
             var result = new FBResult[this.nums.Length];
-            for (int i = 0; i <= this.nums.Length;i++ )
+            for (int i = 0; i < this.nums.Length;i++ )
             {
                 foreach (var fbi in fbitems)
                 {
                     FBResult fbresult = fbi.GetResult(nums[i]);
                     result[i] = fbresult;
-                    if (fbresult.Text.Length > 0)
+                    if (fbresult.Text!=null)
                     {
                         break;
                     }

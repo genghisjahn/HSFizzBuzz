@@ -18,7 +18,7 @@ namespace FizzBuzzLib
             FBResult result = new FBResult();
             if (i % this.Divisor == 0)
             {
-                result.FBValue = null;
+                result.FBValue = i;
                 result.Text = this.Message;
             }
             else
