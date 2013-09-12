@@ -41,6 +41,27 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Outside Client Implementations")]
+        public void Valid_Palindrome_Outside_Assembly_Test()
+        {
+            var numtocheck = 1001;
+            var fbpitem = new OtherFizzBuzzLib.PalindromeOutside(10);
+            var result = fbpitem.GetResult(numtocheck);
+            Assert.IsTrue(result.Text == "Palindrome!" && result.FBValue == numtocheck);
+        }
+        [TestMethod]
+        [TestCategory("Outside Client Implementations")]
+        public void InValid_Palindrome_Outside_Assembly_Test()
+        {
+            var numtocheck = 1000;
+            var fbpitem = new OtherFizzBuzzLib.PalindromeOutside(10);
+            var result = fbpitem.GetResult(numtocheck);
+            Assert.IsTrue(result.Text == null && result.FBValue == numtocheck);
+        }
+
+
+
+        [TestMethod]
         [TestCategory("Other Implementations")]
         public void Valid_PerfectSquare_Test()
         {
