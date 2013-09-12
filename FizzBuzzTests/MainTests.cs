@@ -78,7 +78,7 @@ namespace FizzBuzzTests
        
        
 
-        private static bool CheckAllForSingleCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
+        private static bool CheckForCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
         {
             var fbproc = new FBProcessor(numbers, fbitems);
             var results = fbproc.GetResults();
