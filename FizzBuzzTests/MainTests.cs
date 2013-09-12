@@ -31,8 +31,8 @@ namespace FizzBuzzTests
         public void Multiples_Of_5_Return_Buzz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(5, numbers);
-            var fbitem3 = new FBDivisorItem(5, "Buzz");
-            bool nofizzcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem3 }, "Fizz");
+            var fbitem5 = new FBDivisorItem(5, "Buzz");
+            bool nofizzcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem5 }, "Buzz");
             Assert.IsTrue(nofizzcheck == false);
         }
 
