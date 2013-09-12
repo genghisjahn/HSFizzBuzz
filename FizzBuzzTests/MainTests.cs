@@ -16,7 +16,7 @@ namespace FizzBuzzTests
         [ClassInitialize]
         public static void FZTestInitialize(TestContext context)
         {
-            numbers = Enumerable.Range(1, 100).ToArray();
+            numbers = Enumerable.Range(1, 100000).ToArray();
             numbers20 = Enumerable.Range(1, 20).ToArray();
         }
         #region "Other Implementation Tests"

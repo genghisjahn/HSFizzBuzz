@@ -15,16 +15,11 @@ namespace FizzBuzzLib
         }
         public FBResult GetResult(int i)
         {
-            FBResult result = new FBResult();
+            FBResult result = new FBResult(i,null);
             if (i % this.Divisor == 0)
             {
                 result.FBValue = i;
                 result.Text = this.Message;
-            }
-            else
-            {
-                result.FBValue = i;
-                result.Text = null;
             }
             return result;
         }

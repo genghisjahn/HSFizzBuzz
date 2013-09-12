@@ -19,10 +19,11 @@ namespace FizzBuzzLib
         [Description("FBItems are processed in descending order based on the Order Check property."), Category("Functionality")]
         public FBResult[] GetResults()
         {
+            var orderedItems = fbitems.OrderByDescending(fb => fb.OrderCheck);
             var result = new FBResult[this.nums.Length];
             for (int i = 0; i < this.nums.Length;i++ )
             {
-                foreach (var fbi in fbitems.OrderByDescending(fb=>fb.OrderCheck))
+                foreach (var fbi in orderedItems)
                 {
                     FBResult fbresult = fbi.GetResult(nums[i]);
                     result[i] = fbresult;
