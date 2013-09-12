@@ -20,7 +20,7 @@ namespace FizzBuzzLib
             var result = new FBResult[this.nums.Length];
             for (int i = 0; i < this.nums.Length;i++ )
             {
-                foreach (var fbi in fbitems)
+                foreach (var fbi in fbitems.OrderByDescending(fb=>fb.OrderCheck))
                 {
                     FBResult fbresult = fbi.GetResult(nums[i]);
                     result[i] = fbresult;

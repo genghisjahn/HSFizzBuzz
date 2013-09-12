@@ -9,7 +9,7 @@ namespace FizzBuzzLib
 {
     public class FBDivisorItem:BaseDivisorItem,IFBItem
     {
-        public FBDivisorItem(int i, string  msg  ):base(i,msg)
+        public FBDivisorItem(int i, string  msg, int ocheck  ):base(i,msg,ocheck)
         {
            
         }

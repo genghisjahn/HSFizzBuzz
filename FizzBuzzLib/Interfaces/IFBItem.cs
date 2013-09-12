@@ -9,5 +9,6 @@ namespace FizzBuzzLib.Interfaces
     public interface IFBItem
     {
         FBResult GetResult(int i);
+        int OrderCheck{get;}
     }
 }
