@@ -26,7 +26,16 @@ namespace FizzBuzzTests
             bool nofizzcheck = CheckAllForSingleCondition(numstocheck,new List<IFBItem> { fbitem3 },"Fizz");    
             Assert.IsTrue(nofizzcheck == false);
         }
+        [TestMethod]
+        public void NonMultiples_Of_3_Return_Number_Test()
+        {
+            var notby3 = GetNonMultiplesByDivisor(3, numbers);
+            var fbitem3 = new FBDivisorItem(3, "Fizz");
+            bool fizzcheck = CheckAllForSingleCondition(notby3, new List<IFBItem> { fbitem3 }, null);
 
+            Assert.IsTrue(fizzcheck == false);
+
+        }
         [TestMethod]
         public void Multiples_Of_5_Return_Buzz_Test()
         {
@@ -46,16 +55,7 @@ namespace FizzBuzzTests
 
         }
        
-        [TestMethod]
-        public void NonMultiples_Of_3_Return_Number_Test()
-        {
-            var notby3 = GetNonMultiplesByDivisor(3, numbers);
-            var fbitem3 = new FBDivisorItem(3, "Fizz");
-            bool fizzcheck = CheckAllForSingleCondition(notby3, new List<IFBItem> { fbitem3 }, null);
-            
-            Assert.IsTrue(fizzcheck == false);
-
-        }
+       
 
         private static bool CheckAllForSingleCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
         {
