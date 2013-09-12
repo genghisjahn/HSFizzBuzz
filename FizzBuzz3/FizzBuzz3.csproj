@@ -52,6 +52,10 @@
       <Project>{8c1785f2-3d95-4b1e-a384-eb28e4472bde}</Project>
       <Name>FizzBuzzLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OtherFizzBuzzLib\OtherFizzBuzzLib.csproj">
+      <Project>{77da45be-337b-4061-9be0-34544c71b75e}</Project>
+      <Name>OtherFizzBuzzLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

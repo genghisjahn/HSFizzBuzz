@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FizzBuzzLib;
 using FizzBuzzLib.Interfaces;
+using OtherFizzBuzzLib;
 namespace FizzBuzz3
 {
     class Program
@@ -17,7 +18,9 @@ namespace FizzBuzz3
             //var results = ProcessResultsBuzz(); //Only Multiples of 5 rule.
             //var results = ProcessResultsFizzBuzz(); //Only Multiples of 15 rule.
             //var results = ProcessResultsFullFizzBuzz(); //All three fizzbuzz rules.
-            var results = ProcessResultsFizzAndPalindrome(); //Only multiples of 3 and palindromes.
+            //var results = ProcessResultsFizzAndPalindrome(); //Only multiples of 3 and palindromes.
+            var results = ProcessResultsOutsideAssemblyPalindrome(); //Palindrome rule applied based upon outside implementation of IFBItem.
+            
             
             foreach (var r in results)
             {
@@ -69,6 +72,15 @@ namespace FizzBuzz3
             List<IFBItem> fbitems = new List<IFBItem>();
             fbitems.Add(fb3);
             fbitems.Add(fbp);
+            FBProcessor fbproc = new FBProcessor(numbers, fbitems);
+            return fbproc.GetResults();
+        }
+        private static FBResult[] ProcessResultsOutsideAssemblyPalindrome()
+        {
+
+            PalindromeOutside op = new PalindromeOutside(10);
+            List<IFBItem> fbitems = new List<IFBItem>();
+            fbitems.Add(op);
             FBProcessor fbproc = new FBProcessor(numbers, fbitems);
             return fbproc.GetResults();
         }
