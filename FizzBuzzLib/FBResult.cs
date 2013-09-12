@@ -20,9 +20,8 @@ namespace FizzBuzzLib
         public string Text { get; set; }
         public override string ToString()
         {
-            if (this.FBValue.HasValue)return this.FBValue.Value.ToString();
-
             if (this.Text != null) return this.Text;
+            if (this.FBValue.HasValue) return this.FBValue.Value.ToString();
             throw new NullReferenceException("This instance was not set correctly.");
         }
     }
