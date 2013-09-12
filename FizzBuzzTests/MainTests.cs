@@ -4,6 +4,7 @@ using System.Collections;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FizzBuzzLib;
 using FizzBuzzLib.Interfaces;
+using System.Collections.Generic;
 namespace FizzBuzzTests
 {
     [TestClass]
@@ -20,23 +21,14 @@ namespace FizzBuzzTests
         [TestMethod]
         public void Multiples_Of_3_Return_Fizz_Test()
         {
-            var by3 = GetMultiplesByDivisor(3, numbers);
+            var numstocheck = GetMultiplesByDivisor(3, numbers);
             var fbitem3 = new FBDivisorItem(3, "Fizz");
-            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<IFBItem> { fbitem3 });
-            var results = fbproc.GetResults();
-            var resultarray=new int[by3.Length];
-            bool nofizzcheck = false;
-            foreach (int i in by3)
-            {
-                FBResult fbresult = fbitem3.GetResult(i);
-                if (fbresult.Text != "Fizz" && fbresult.FBValue.HasValue == true)
-                {
-                    nofizzcheck = true;
-                    break;
-                }
-            }
+            bool nofizzcheck = CheckAllForSingleCondition(numstocheck,new List<IFBItem> { fbitem3 },"Fizz");    
             Assert.IsTrue(nofizzcheck == false);
         }
+
+        
+
         [TestMethod]
         public void NonMultiples_Of_3_Return_Number_Test()
         {
@@ -61,7 +53,22 @@ namespace FizzBuzzTests
 
         }
 
-        
+        private static bool CheckAllForSingleCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
+        {
+            var fbproc = new FBProcessor(numbers, fbitems);
+            var results = fbproc.GetResults();
+            bool conditioncheck = false;
+            foreach (int i in numstocheck)
+            {
+                FBResult fbresult = fbitems.First().GetResult(i);
+                if (fbresult.Text != textcheck && fbresult.FBValue.HasValue == true)
+                {
+                    conditioncheck = true;
+                    break;
+                }
+            }
+            return conditioncheck;
+        }
 
         private static int[] GetMultiplesByDivisor(int divisor,int[] nums)
         {
