@@ -16,13 +16,25 @@ namespace FizzBuzzLib
         }
 
 
-        public int? FBValue{get;set;}
+        public int? FBValue { get; set; }
         public string Text { get; set; }
         public override string ToString()
         {
-            if (this.Text != null) return this.Text;
-            if (this.FBValue.HasValue) return this.FBValue.Value.ToString();
-            throw new NullReferenceException("This instance was not set correctly.");
+            if(this.FBValue.HasValue==false){
+                throw new NullReferenceException("This instance was not set correctly.");
+            }
+            string result = "";
+            string msg = "";
+            if (this.Text != null)
+            {
+                msg = this.Text;
+            }
+            else
+            {
+                 msg = this.FBValue.Value.ToString();
+            }
+            result = string.Format("{0} - {1}", this.FBValue.Value, msg);
+            return result;
         }
     }
 }
