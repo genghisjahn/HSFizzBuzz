@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseObjects\BaseDivisorItem.cs" />
+    <Compile Include="FBPalindromeItem.cs" />
     <Compile Include="FBProcessor.cs" />
     <Compile Include="FBResult.cs" />
     <Compile Include="Interfaces\IFBItem.cs" />

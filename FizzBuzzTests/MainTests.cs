@@ -18,6 +18,10 @@ namespace FizzBuzzTests
             numbers = Enumerable.Range(1, 100).ToArray();
         }
 
+
+        #region "Noraml Fizz Buzz Test"
+
+        
         [TestMethod]
         [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_3_Return_Fizz_Test()
@@ -126,6 +130,12 @@ namespace FizzBuzzTests
 
         }
 
+
+        #endregion
+
+
+        #region "Private Methods"
+        
         private static bool CheckForCondition(int[] numstocheck, List<IFBItem> fbitems, string textcheck)
         {
             var fbproc = new FBProcessor(numstocheck, fbitems);
@@ -157,5 +167,6 @@ namespace FizzBuzzTests
             int[] result = nums.Where(n => n % divisor != 0).ToArray();
             return result;
         }
+        #endregion
     }
 }
