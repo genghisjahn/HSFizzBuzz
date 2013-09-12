@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FizzBuzzLib
+namespace FizzBuzzLib.Interfaces
 {
-    public class Processor
+    public interface IFBItem
     {
-
+        int OrderCheck { get; set; }
+        FBResult GetResult(int i);
     }
 }
