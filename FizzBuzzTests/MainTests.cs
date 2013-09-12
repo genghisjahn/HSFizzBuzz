@@ -105,15 +105,15 @@ namespace FizzBuzzTests
             
             
 
-            var fbroc = new FBProcessor(numbers,new List<IFBItem> { fb15, fb5, fb3 });
+            var fbproc = new FBProcessor(numbers,new List<IFBItem> { fb15, fb5, fb3 });
 
-            var procresults = fbroc.GetResults();
+            var procresults = fbproc.GetResults();
 
             var m3count = procresults.Where(n => n.Text == "Fizz").Count();
             var m5count = procresults.Where(n => n.Text == "Buzz").Count();
             var m15count = procresults.Where(n => n.Text == "FizzBuzz").Count();
             var othercount = procresults.Where(n => n.Text == null).Count();
-
+            
             Assert.IsTrue(m3.Count() == m3count && m5.Count() == m5count && m15.Count() == m15count && othercount == other.Count());
 
         }
