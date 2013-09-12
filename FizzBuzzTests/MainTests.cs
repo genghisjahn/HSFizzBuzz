@@ -176,7 +176,7 @@ namespace FizzBuzzTests
 
         #endregion
 
-        #region "Test Other And Fizz Buzz"
+        #region "Test Other Implemntations And Fizz Buzz"
 
         [TestMethod]
         [TestCategory("FizzBuzz & Other Tests")]
