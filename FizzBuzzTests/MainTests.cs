@@ -23,7 +23,7 @@ namespace FizzBuzzTests
         {
             var numstocheck = GetMultiplesByDivisor(3, numbers);
             var fbitem3 = new FBDivisorItem(3, "Fizz");
-            bool condcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem3 }, "Fizz");
+            bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem3 }, "Fizz");
             Assert.IsTrue(condcheck == false);
         }
 
@@ -32,7 +32,7 @@ namespace FizzBuzzTests
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
             var fbitem3 = new FBDivisorItem(3, "Fizz");
-            bool condcheck = CheckAllForSingleCondition(notby3, new List<IFBItem> { fbitem3 }, null);
+            bool condcheck = CheckForCondition(notby3, new List<IFBItem> { fbitem3 }, null);
 
             Assert.IsTrue(condcheck == false);
 
@@ -43,7 +43,7 @@ namespace FizzBuzzTests
         {
             var numstocheck = GetMultiplesByDivisor(5, numbers);
             var fbitem5 = new FBDivisorItem(5, "Buzz");
-            bool condcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem5 }, "Buzz");
+            bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem5 }, "Buzz");
             Assert.IsTrue(condcheck == false);
         }
         [TestMethod]
@@ -51,7 +51,7 @@ namespace FizzBuzzTests
         {
             var notby5 = GetNonMultiplesByDivisor(5, numbers);
             var fbitem5 = new FBDivisorItem(5, "Buzz");
-            bool condcheck = CheckAllForSingleCondition(notby5, new List<IFBItem> { fbitem5 }, null);
+            bool condcheck = CheckForCondition(notby5, new List<IFBItem> { fbitem5 }, null);
 
             Assert.IsTrue(condcheck == false);
 
@@ -62,7 +62,7 @@ namespace FizzBuzzTests
         {
             var numstocheck = GetMultiplesByDivisor(15, numbers);
             var fbitem15 = new FBDivisorItem(15, "FizzBuzz");
-            bool condcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem15 }, "FizzBuzz");
+            bool condcheck = CheckForCondition(numstocheck, new List<IFBItem> { fbitem15 }, "FizzBuzz");
             Assert.IsTrue(condcheck == false);
         }
         [TestMethod]
@@ -70,7 +70,7 @@ namespace FizzBuzzTests
         {
             var notby15 = GetNonMultiplesByDivisor(15, numbers);
             var fbitem15 = new FBDivisorItem(15, "FizzBuzz");
-            bool condcheck = CheckAllForSingleCondition(notby15, new List<IFBItem> { fbitem15 }, null);
+            bool condcheck = CheckForCondition(notby15, new List<IFBItem> { fbitem15 }, null);
 
             Assert.IsTrue(condcheck == false);
 
