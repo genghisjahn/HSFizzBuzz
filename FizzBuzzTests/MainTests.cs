@@ -27,28 +27,23 @@ namespace FizzBuzzTests
             Assert.IsTrue(nofizzcheck == false);
         }
 
-        
+        [TestMethod]
+        public void Multiples_Of_5_Return_Buzz_Test()
+        {
+            var numstocheck = GetMultiplesByDivisor(5, numbers);
+            var fbitem3 = new FBDivisorItem(5, "Buzz");
+            bool nofizzcheck = CheckAllForSingleCondition(numstocheck, new List<IFBItem> { fbitem3 }, "Fizz");
+            Assert.IsTrue(nofizzcheck == false);
+        }
 
+       
         [TestMethod]
         public void NonMultiples_Of_3_Return_Number_Test()
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
             var fbitem3 = new FBDivisorItem(3, "Fizz");
-
-            var fbproc = new FBProcessor(numbers, new System.Collections.Generic.List<IFBItem> { fbitem3 });
-            var results = fbproc.GetResults();
-            var resultarray = new int[notby3.Length];
-
-            bool fizzcheck = false;
-            foreach (int i in notby3)
-            {
-                FBResult fbresult = fbitem3.GetResult(i);
-                if (fbresult.Text == "Fizz" && fbresult.FBValue.HasValue == true)
-                {
-                    fizzcheck = true;
-                    break;
-                }
-            }
+            bool fizzcheck = CheckAllForSingleCondition(notby3, new List<IFBItem> { fbitem3 }, null);
+            
             Assert.IsTrue(fizzcheck == false);
 
         }
