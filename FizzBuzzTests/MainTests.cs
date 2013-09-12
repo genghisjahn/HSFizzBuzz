@@ -18,7 +18,25 @@ namespace FizzBuzzTests
             numbers = Enumerable.Range(1, 100).ToArray();
         }
 
+        [TestMethod]
+        [TestCategory("Other Implementations")]
+        public void Valid_PalinDromeTest()
+        {
+            var numtocheck = 1001;
+            var fbpitem = new FBPalindromeItem(1);
+            var result= fbpitem.GetResult(numtocheck);
+            Assert.IsTrue(result.Text == "Palindrome!" && result.FBValue == numtocheck);
+        }
 
+        [TestMethod]
+        [TestCategory("Other Implementations")]
+        public void InValid_PalinDromeTest()
+        {
+            var numtocheck = 1011;
+            var fbpitem = new FBPalindromeItem(1);
+            var result = fbpitem.GetResult(numtocheck);
+            Assert.IsTrue(result.Text != "Palindrome!" && result.FBValue == numtocheck);
+        }
 
         #region "Normal Fizz Buzz Test"
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FizzBuzzLib.Interfaces;
 namespace FizzBuzzLib
 {
-    class FBPalindromeItem:IFBItem
+    public class FBPalindromeItem:IFBItem
     {
         public FBPalindromeItem(int ordercheck)
         {
@@ -17,7 +17,7 @@ namespace FizzBuzzLib
         {
             FBResult result = new FBResult(i, null);
             string normal = i.ToString();
-            string backwards = normal.Reverse().ToString();
+            string backwards = new string(normal.Reverse().ToArray());
             if (normal == backwards)
             {
                 result.Text = "Palindrome!";
