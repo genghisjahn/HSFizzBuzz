@@ -19,6 +19,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_3_Return_Fizz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(3, numbers);
@@ -28,6 +29,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void NonMultiples_Of_3_Return_Number_Test()
         {
             var notby3 = GetNonMultiplesByDivisor(3, numbers);
@@ -39,6 +41,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_5_Return_Buzz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(5, numbers);
@@ -48,6 +51,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void NonMultiples_Of_5_Return_Number_Test()
         {
             var notby5 = GetNonMultiplesByDivisor(5, numbers);
@@ -59,6 +63,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_15_Return_FizzBuzz_Test()
         {
             var numstocheck = GetMultiplesByDivisor(15, numbers);
@@ -68,6 +73,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void NonMultiples_Of_15_Return_Number_Test()
         {
             var numstocheck = GetNonMultiplesByDivisor(15, numbers);
@@ -77,6 +83,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void Multiples_Of_15_Return_FizzBuzz_With_15_5_3_Items_Test()
         {
             var numstocheck = GetMultiplesByDivisor(15, numbers);
@@ -90,6 +97,7 @@ namespace FizzBuzzTests
         }
 
         [TestMethod]
+        [TestCategory("Normal Fizz Buzz")]
         public void All_3_Fizz_5_Buzz_15_FizzBuzz_Test()
         {
             var m15 = GetMultiplesByDivisor(15, numbers);
@@ -108,7 +116,7 @@ namespace FizzBuzzTests
             var fbproc = new FBProcessor(numbers,new List<IFBItem> { fb15, fb5, fb3 });
 
             var procresults = fbproc.GetResults();
-
+            
             var m3count = procresults.Where(n => n.Text == "Fizz").Count();
             var m5count = procresults.Where(n => n.Text == "Buzz").Count();
             var m15count = procresults.Where(n => n.Text == "FizzBuzz").Count();
