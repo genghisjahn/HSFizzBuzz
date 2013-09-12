@@ -85,11 +85,14 @@ namespace FizzBuzzTests
             bool conditioncheck = false;
             foreach (int i in numstocheck)
             {
-                FBResult fbresult = fbitems.First().GetResult(i);
-                if (fbresult.Text != textcheck && fbresult.FBValue.HasValue == true)
+                foreach (IFBItem fbi in fbitems)
                 {
-                    conditioncheck = true;
-                    break;
+                    FBResult fbresult = fbi.GetResult(i);
+                    if (fbresult.Text != textcheck && fbresult.FBValue.HasValue == true)
+                    {
+                        conditioncheck = true;
+                        break;
+                    }
                 }
             }
             return conditioncheck;
